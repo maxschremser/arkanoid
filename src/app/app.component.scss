@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Arkanoid";
+  src: url("../assets/ARKANOID.TTF") format("truetype");
+  font-weight: bold;
+}
+h1 {
+  font-family: Arkanoid;
+  font-size: 9em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: cornflowerblue;
+  text-align: center;
+}
+div.game {
+  background-color: black;
+  width: 640px;
+  height: 480px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

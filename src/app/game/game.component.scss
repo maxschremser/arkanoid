@@ -1,0 +1,25 @@
+p {
+  color: white;
+}
+div.game {
+  background-color: black;
+  width: 640px;
+  height: 480px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+div.arkanoid {
+  width: 65px;
+  height: 18px;
+  background-color: deepskyblue;
+  position: absolute;
+  top: 640px;
+  margin: auto 3px 0;
+  border-radius: 7px;
+}
