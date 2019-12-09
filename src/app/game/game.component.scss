@@ -18,8 +18,9 @@ div.arkanoid {
   width: 65px;
   height: 18px;
   background-color: deepskyblue;
-  position: absolute;
-  top: 640px;
+  position: relative;
+  top: 450px;
+  left: calc(50% - 32px);
   margin: auto 3px 0;
   border-radius: 7px;
 }

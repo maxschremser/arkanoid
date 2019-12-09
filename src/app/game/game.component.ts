@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {fromEvent} from "rxjs";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {fromEvent, interval} from "rxjs";
 import {filter} from "rxjs/operators";
 
 export enum KeyCode { LEFT = "ArrowLeft", RIGHT = "ArrowRight", SPACE = "Space"}
@@ -10,6 +10,13 @@ export enum KeyCode { LEFT = "ArrowLeft", RIGHT = "ArrowRight", SPACE = "Space"}
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  @ViewChild("arkanoid", {static: true}) arkanoid: ElementRef;
+
+  FPS = 30;
+  x = (640 / 2) - 65;
+  dX = 13;
+
+  y = 450;
 
   left = false;
   right = false;
@@ -50,6 +57,26 @@ export class GameComponent implements OnInit {
     })).subscribe((evt: KeyboardEvent) => {
       this.shoot = true;
     });
+
+    interval(1000 / this.FPS).subscribe((d) => {
+      console.log("l", this.arkanoid.nativeElement.clientLeft);
+      if (this.left) {
+        this.x -= this.dX;
+        if (this.x <= 0) {
+          this.x = 0;
+        }
+        this.arkanoid.nativeElement.style.left = `${this.x}px`;
+      }
+
+      if (this.right) {
+        this.x += this.dX;
+        if (this.x >= (640 - 65)) {
+          this.x = 640 - 70;
+        }
+        this.arkanoid.nativeElement.style.left = `${this.x}px`;
+      }
+    });
   }
+
 
 }
